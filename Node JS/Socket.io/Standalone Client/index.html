@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <script src="socket.io.js"></script>
+  </head>
+  <body>
+    <div id="socket"> Not Connected</div>
+    <script>
+      const socket = io("http://localhost:3000/");
+
+      socket.on('connected', () => {
+        document.querySelector('#socket').innerText = "Connected";
+      });
+      socket.on('disconnect', () => {
+        document.querySelector('#socket').innerText = "Not Connected";
+      });
+    </script>
+  </body>
+</html>
